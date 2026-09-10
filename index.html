@@ -4,74 +4,625 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vikas's Learning Notes</title>
+    <title>What is an AI Agent? | My AI Learning Journey</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.7;
             max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-            background-color: #f5f5f5;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #222;
+            background: #f7f7f7;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
         }
 
         h1 {
-            text-align: center;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            margin-top: 30px;
         }
 
         .subtitle {
-            text-align: center;
             color: #666;
-            margin-bottom: 40px;
+            font-size: 18px;
         }
 
-        .day-card {
-            background: white;
+        .note {
+            background: #f1f7ff;
+            border-left: 5px solid #4285f4;
+            padding: 15px 20px;
+            margin: 25px 0;
+        }
+
+        .simple-box {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
             padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
         }
 
-        .day-card a {
-            text-decoration: none;
-            font-size: 20px;
+        .formula {
+            font-size: 24px;
             font-weight: bold;
-            color: #333;
+            padding: 20px;
+            text-align: center;
         }
 
-        .day-card p {
-            color: #666;
+        .workflow {
+            background: #fff7e6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px 20px;
+            margin: 20px 0;
         }
 
-        .day-card:hover {
-            transform: translateY(-2px);
+        .agent {
+            background: #eef9f0;
+            border-left: 5px solid #28a745;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+
+        .loop {
+            text-align: center;
+            font-size: 18px;
+            line-height: 2;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 14px;
+        }
+
+        a {
+            color: #1565c0;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>📚 Vikas's Learning Notes</h1>
+<div class="container">
+
+    <h1>What is an AI Agent?</h1>
 
     <p class="subtitle">
-        My journey of learning AI, Machine Learning and Generative AI
+        My understanding while learning AI Agents from scratch
     </p>
 
-    <div class="day-card">
-        <a href="day1.html">Day 1 – Introduction</a>
-        <p>My first day of learning.</p>
+    <div class="note">
+        <strong>Learning note:</strong>
+        This page documents my understanding of AI agents while studying
+        <em>Build an AI Agent (From Scratch)</em>.
     </div>
 
-    <div class="day-card">
-        <a href="day2.html">Day 2 – Machine Learning</a>
-        <p>Notes and concepts learned on Day 2.</p>
+
+    <!-- INTRODUCTION -->
+
+    <h2>1. What am I trying to understand?</h2>
+
+    <p>
+        When I first heard the term <strong>AI Agent</strong>, I wondered:
+    </p>
+
+    <div class="simple-box">
+        <strong>What actually makes an AI system an agent?</strong>
     </div>
 
-    <div class="day-card">
-        <a href="day3.html">Day 3 – Deep Learning</a>
-        <p>Notes and concepts learned on Day 3.</p>
+    <p>
+        Is an agent simply an LLM such as ChatGPT?
+        Or does something else need to be added?
+    </p>
+
+    <p>
+        The idea that started making sense to me is:
+    </p>
+
+
+    <!-- CORE IDEA -->
+
+    <h2>2. The basic idea</h2>
+
+    <div class="formula">
+        LLM + Tools + Loop = AI Agent
     </div>
+
+    <p>
+        An LLM can generate an answer, but an agent can use the LLM
+        as part of a larger control loop.
+    </p>
+
+    <p>
+        The LLM can help decide:
+    </p>
+
+    <ul>
+        <li>What should I do next?</li>
+        <li>Which tool should I use?</li>
+        <li>What information do I need?</li>
+        <li>Should I continue?</li>
+        <li>When should I stop?</li>
+    </ul>
+
+
+    <!-- THREE COMPONENTS -->
+
+    <h2>3. Three important building blocks</h2>
+
+    <h3>3.1 LLM — The decision-making core</h3>
+
+    <p>
+        The Large Language Model provides the reasoning and
+        decision-making capability.
+    </p>
+
+    <p>
+        Think of it as the <strong>brain</strong> of the system.
+    </p>
+
+
+    <h3>3.2 Tools — The ability to act</h3>
+
+    <p>
+        Tools allow the system to interact with the outside world.
+    </p>
+
+    <p>Examples:</p>
+
+    <ul>
+        <li>Search the web</li>
+        <li>Call an API</li>
+        <li>Read a file</li>
+        <li>Write a file</li>
+        <li>Execute code</li>
+        <li>Query a database</li>
+    </ul>
+
+
+    <h3>3.3 Loop — The ability to continue</h3>
+
+    <p>
+        The loop is what makes the process more dynamic.
+    </p>
+
+    <div class="loop">
+        Evaluate context
+        ↓<br>
+
+        Choose an action
+        ↓<br>
+
+        Use a tool
+        ↓<br>
+
+        Get the result
+        ↓<br>
+
+        Add result to context
+        ↓<br>
+
+        Decide whether to continue
+        ↓<br>
+
+        Repeat or stop
+    </div>
+
+
+    <!-- RESEARCH EXAMPLE -->
+
+    <h2>4. Simple example: Research Agent</h2>
+
+    <p>
+        Imagine asking an AI:
+    </p>
+
+    <div class="simple-box">
+        <strong>
+            "Research the latest developments in AI agents and
+            summarize the important findings."
+        </strong>
+    </div>
+
+    <p>
+        A traditional program might have a fixed sequence:
+    </p>
+
+    <div class="workflow">
+        Search → Read → Summarize → Finish
+    </div>
+
+    <p>
+        An agent can dynamically decide what to do next.
+    </p>
+
+    <div class="agent">
+        Search source A
+        <br>↓
+        <br>Read result
+        <br>↓
+        <br>"I need more information"
+        <br>↓
+        <br>Search source B
+        <br>↓
+        <br>Compare information
+        <br>↓
+        <br>"I have enough information"
+        <br>↓
+        <br>Write summary
+    </div>
+
+
+    <!-- WORKFLOW VS AGENT -->
+
+    <h2>5. Workflow vs Agent</h2>
+
+    <p>
+        This was one of the most important concepts for me.
+    </p>
+
+
+    <div class="workflow">
+
+        <h3>Workflow</h3>
+
+        <p>
+            The <strong>developer defines the execution flow</strong>.
+        </p>
+
+        <p>
+            Example:
+        </p>
+
+        <p>
+            Step 1 → Step 2 → Step 3 → Step 4
+        </p>
+
+        <p>
+            Even if an LLM is involved, the overall path is
+            predetermined.
+        </p>
+
+    </div>
+
+
+    <div class="agent">
+
+        <h3>Agent</h3>
+
+        <p>
+            The LLM gets more control over the execution flow.
+        </p>
+
+        <p>
+            The model can determine:
+        </p>
+
+        <ul>
+            <li>Which action to take</li>
+            <li>Which tool to use</li>
+            <li>What to do next</li>
+            <li>Whether another step is required</li>
+            <li>When to stop</li>
+        </ul>
+
+    </div>
+
+
+    <h3>Simple way I remember it</h3>
+
+    <div class="simple-box">
+
+        <p>
+            <strong>Workflow:</strong>
+            Developer controls the path.
+        </p>
+
+        <p>
+            <strong>Agent:</strong>
+            LLM has control over more of the path.
+        </p>
+
+    </div>
+
+
+    <!-- HYBRID -->
+
+    <h2>6. Can we combine workflows and agents?</h2>
+
+    <p>
+        Yes.
+    </p>
+
+    <p>
+        A real application does not necessarily need to be
+        completely workflow-based or completely agent-based.
+    </p>
+
+    <div class="simple-box">
+
+        <strong>
+            Workflow → Agent → Workflow
+        </strong>
+
+        <p>
+            A developer-defined system can contain an agent
+            inside one of its steps.
+        </p>
+
+    </div>
+
+    <p>
+        This can help keep complex systems more controlled,
+        predictable, and easier to debug.
+    </p>
+
+
+    <!-- WHEN TO USE AGENT -->
+
+    <h2>7. Do we always need an agent?</h2>
+
+    <p>
+        No.
+    </p>
+
+    <p>
+        One important lesson is that using an agent adds
+        complexity.
+    </p>
+
+    <p>
+        Before building an agent, ask:
+    </p>
+
+    <ol>
+        <li>Does this task need an LLM?</li>
+        <li>If it needs an LLM, does it actually need an agent?</li>
+    </ol>
+
+    <p>
+        If the process is predictable, a normal workflow may be
+        simpler and more reliable.
+    </p>
+
+    <p>
+        Agents become more useful when the number and order of
+        steps cannot easily be predicted in advance.
+    </p>
+
+
+    <!-- GAIA -->
+
+    <h2>8. GAIA</h2>
+
+    <p>
+        GAIA is a benchmark used to evaluate AI agents on
+        real-world questions that require multiple capabilities.
+    </p>
+
+    <p>
+        The important idea for me is that building an agent
+        is not just about making it work once.
+    </p>
+
+    <p>
+        We also need to evaluate how well it performs.
+    </p>
+
+
+    <!-- CONTEXT -->
+
+    <h2>9. Context Engineering</h2>
+
+    <p>
+        Another important concept is <strong>context engineering</strong>.
+    </p>
+
+    <p>
+        Context is more than just the prompt.
+    </p>
+
+    <p>
+        It can include:
+    </p>
+
+    <ul>
+        <li>System instructions</li>
+        <li>User messages</li>
+        <li>Conversation history</li>
+        <li>Tool results</li>
+        <li>Retrieved documents</li>
+        <li>Other information needed by the agent</li>
+    </ul>
+
+
+    <h3>Why does context matter?</h3>
+
+    <p>
+        An agent can fail even when the LLM itself is capable.
+    </p>
+
+    <p>
+        Sometimes the problem is that the model did not receive
+        the right information at the right time.
+    </p>
+
+
+    <h3>Five context engineering strategies</h3>
+
+    <ol>
+        <li><strong>Generate</strong></li>
+        <li><strong>Retrieve</strong></li>
+        <li><strong>Write</strong></li>
+        <li><strong>Reduce</strong></li>
+        <li><strong>Isolate</strong></li>
+    </ol>
+
+
+    <!-- HARNESS -->
+
+    <h2>10. Harness</h2>
+
+    <p>
+        Another concept I came across is the idea of an
+        <strong>agent harness</strong>.
+    </p>
+
+    <p>
+        The harness is the surrounding system that helps the
+        model operate.
+    </p>
+
+    <p>
+        It can include things such as:
+    </p>
+
+    <ul>
+        <li>Tools</li>
+        <li>Memory</li>
+        <li>Context management</li>
+        <li>Skills</li>
+        <li>Safe execution</li>
+        <li>Files and user environment</li>
+        <li>Evaluation and other supporting components</li>
+    </ul>
+
+
+    <div class="formula">
+        Agent = Model + Harness
+    </div>
+
+
+    <!-- TAKEAWAYS -->
+
+    <h2>11. My key takeaways</h2>
+
+    <ol>
+
+        <li>
+            An LLM by itself is not necessarily an agent.
+        </li>
+
+        <li>
+            Tools give the system the ability to interact with
+            the outside world.
+        </li>
+
+        <li>
+            A loop allows the system to perform multiple steps
+            and decide whether to continue.
+        </li>
+
+        <li>
+            Workflows have developer-defined execution paths.
+        </li>
+
+        <li>
+            Agents allow the LLM to dynamically influence the
+            execution path.
+        </li>
+
+        <li>
+            Not every problem needs an agent.
+        </li>
+
+        <li>
+            Context is a critical part of building reliable agents.
+        </li>
+
+        <li>
+            Understanding the internals makes agents easier to
+            debug and improve.
+        </li>
+
+    </ol>
+
+
+    <!-- MY LEARNING -->
+
+    <h2>12. What I want to learn next</h2>
+
+    <p>
+        My next step is to move from understanding the concepts
+        to actually building a small agent from scratch.
+    </p>
+
+    <div class="simple-box">
+
+        <strong>
+            Learn → Understand → Build → Test → Share
+        </strong>
+
+    </div>
+
+    <p>
+        I am using this page as a personal learning and revision
+        notebook while exploring AI agents.
+    </p>
+
+
+    <!-- SOURCE -->
+
+    <h2>13. Source</h2>
+
+    <p>
+        <strong>
+            Build an AI Agent (From Scratch)
+        </strong>
+    </p>
+
+    <p>
+        Manning Publications — Chapter 1:
+        <em>What is an AI agent?</em>
+    </p>
+
+    <p>
+        <a href="https://livebook.manning.com/book/build-an-ai-agent-from-scratch/chapter-1"
+           target="_blank">
+            Read the original chapter on Manning
+        </a>
+    </p>
+
+
+    <footer>
+
+        <p>
+            <strong>My AI Learning Journey</strong>
+        </p>
+
+        <p>
+            Notes created for learning, experimentation and revision.
+        </p>
+
+    </footer>
+
+</div>
 
 </body>
 </html>
