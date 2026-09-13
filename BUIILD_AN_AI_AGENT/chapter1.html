@@ -113,501 +113,446 @@
 
     <h1>What is an AI Agent?</h1>
 
-    <p class="subtitle">
-        My understanding while learning AI Agents from scratch
-    </p>
-
-    <div class="note">
-        <strong>Learning note:</strong>
-        This page documents my understanding of AI agents while studying
-        <em>Build an AI Agent (From Scratch)</em>.
-    </div>
-
-
-    <!-- INTRODUCTION -->
-
-    <h2>1. What am I trying to understand?</h2>
-
-    <p>
-        When I first heard the term <strong>AI Agent</strong>, I wondered:
-    </p>
-
-    <div class="simple-box">
-        <strong>What actually makes an AI system an agent?</strong>
-    </div>
-
-    <p>
-        Is an agent simply an LLM such as ChatGPT?
-        Or does something else need to be added?
-    </p>
-
-    <p>
-        The idea that started making sense to me is:
-    </p>
-
-
-    <!-- CORE IDEA -->
-
-    <h2>2. The basic idea</h2>
-
-    <div class="formula">
-        LLM + Tools + Loop = AI Agent
-    </div>
-
-    <p>
-        An LLM can generate an answer, but an agent can use the LLM
-        as part of a larger control loop.
-    </p>
-
-    <p>
-        The LLM can help decide:
-    </p>
-
-    <ul>
-        <li>What should I do next?</li>
-        <li>Which tool should I use?</li>
-        <li>What information do I need?</li>
-        <li>Should I continue?</li>
-        <li>When should I stop?</li>
-    </ul>
-
-
-    <!-- THREE COMPONENTS -->
-
-    <h2>3. Three important building blocks</h2>
-
-    <h3>3.1 LLM — The decision-making core</h3>
-
-    <p>
-        The Large Language Model provides the reasoning and
-        decision-making capability.
-    </p>
-
-    <p>
-        Think of it as the <strong>brain</strong> of the system.
-    </p>
-
-
-    <h3>3.2 Tools — The ability to act</h3>
-
-    <p>
-        Tools allow the system to interact with the outside world.
-    </p>
-
-    <p>Examples:</p>
-
-    <ul>
-        <li>Search the web</li>
-        <li>Call an API</li>
-        <li>Read a file</li>
-        <li>Write a file</li>
-        <li>Execute code</li>
-        <li>Query a database</li>
-    </ul>
-
-
-    <h3>3.3 Loop — The ability to continue</h3>
-
-    <p>
-        The loop is what makes the process more dynamic.
-    </p>
-
-    <div class="loop">
-        Evaluate context
-        ↓<br>
-
-        Choose an action
-        ↓<br>
-
-        Use a tool
-        ↓<br>
-
-        Get the result
-        ↓<br>
-
-        Add result to context
-        ↓<br>
-
-        Decide whether to continue
-        ↓<br>
-
-        Repeat or stop
-    </div>
-
-
-    <!-- RESEARCH EXAMPLE -->
-
-    <h2>4. Simple example: Research Agent</h2>
-
-    <p>
-        Imagine asking an AI:
-    </p>
-
-    <div class="simple-box">
-        <strong>
-            "Research the latest developments in AI agents and
-            summarize the important findings."
-        </strong>
-    </div>
-
-    <p>
-        A traditional program might have a fixed sequence:
-    </p>
-
-    <div class="workflow">
-        Search → Read → Summarize → Finish
-    </div>
-
-    <p>
-        An agent can dynamically decide what to do next.
-    </p>
-
-    <div class="agent">
-        Search source A
-        <br>↓
-        <br>Read result
-        <br>↓
-        <br>"I need more information"
-        <br>↓
-        <br>Search source B
-        <br>↓
-        <br>Compare information
-        <br>↓
-        <br>"I have enough information"
-        <br>↓
-        <br>Write summary
-    </div>
-
-
-    <!-- WORKFLOW VS AGENT -->
-
-    <h2>5. Workflow vs Agent</h2>
-
-    <p>
-        This was one of the most important concepts for me.
-    </p>
-
-
-    <div class="workflow">
-
-        <h3>Workflow</h3>
-
-        <p>
-            The <strong>developer defines the execution flow</strong>.
-        </p>
-
-        <p>
-            Example:
-        </p>
-
-        <p>
-            Step 1 → Step 2 → Step 3 → Step 4
-        </p>
-
-        <p>
-            Even if an LLM is involved, the overall path is
-            predetermined.
-        </p>
-
-    </div>
-
-
-    <div class="agent">
-
-        <h3>Agent</h3>
-
-        <p>
-            The LLM gets more control over the execution flow.
-        </p>
-
-        <p>
-            The model can determine:
-        </p>
-
-        <ul>
-            <li>Which action to take</li>
-            <li>Which tool to use</li>
-            <li>What to do next</li>
-            <li>Whether another step is required</li>
-            <li>When to stop</li>
-        </ul>
-
-    </div>
-
-
-    <h3>Simple way I remember it</h3>
-
-    <div class="simple-box">
-
-        <p>
-            <strong>Workflow:</strong>
-            Developer controls the path.
-        </p>
-
-        <p>
-            <strong>Agent:</strong>
-            LLM has control over more of the path.
-        </p>
-
-    </div>
-
-
-    <!-- HYBRID -->
-
-    <h2>6. Can we combine workflows and agents?</h2>
-
-    <p>
-        Yes.
-    </p>
-
-    <p>
-        A real application does not necessarily need to be
-        completely workflow-based or completely agent-based.
-    </p>
-
-    <div class="simple-box">
-
-        <strong>
-            Workflow → Agent → Workflow
-        </strong>
-
-        <p>
-            A developer-defined system can contain an agent
-            inside one of its steps.
-        </p>
-
-    </div>
-
-    <p>
-        This can help keep complex systems more controlled,
-        predictable, and easier to debug.
-    </p>
-
-
-    <!-- WHEN TO USE AGENT -->
-
-    <h2>7. Do we always need an agent?</h2>
-
-    <p>
-        No.
-    </p>
-
-    <p>
-        One important lesson is that using an agent adds
-        complexity.
-    </p>
-
-    <p>
-        Before building an agent, ask:
-    </p>
-
     <ol>
-        <li>Does this task need an LLM?</li>
-        <li>If it needs an LLM, does it actually need an agent?</li>
-    </ol>
-
-    <p>
-        If the process is predictable, a normal workflow may be
-        simpler and more reliable.
-    </p>
-
-    <p>
-        Agents become more useful when the number and order of
-        steps cannot easily be predicted in advance.
-    </p>
-
-
-    <!-- GAIA -->
-
-    <h2>8. GAIA</h2>
-
-    <p>
-        GAIA is a benchmark used to evaluate AI agents on
-        real-world questions that require multiple capabilities.
-    </p>
-
-    <p>
-        The important idea for me is that building an agent
-        is not just about making it work once.
-    </p>
-
-    <p>
-        We also need to evaluate how well it performs.
-    </p>
-
-
-    <!-- CONTEXT -->
-
-    <h2>9. Context Engineering</h2>
-
-    <p>
-        Another important concept is <strong>context engineering</strong>.
-    </p>
-
-    <p>
-        Context is more than just the prompt.
-    </p>
-
-    <p>
-        It can include:
-    </p>
-
-    <ul>
-        <li>System instructions</li>
-        <li>User messages</li>
-        <li>Conversation history</li>
-        <li>Tool results</li>
-        <li>Retrieved documents</li>
-        <li>Other information needed by the agent</li>
-    </ul>
-
-
-    <h3>Why does context matter?</h3>
-
-    <p>
-        An agent can fail even when the LLM itself is capable.
-    </p>
-
-    <p>
-        Sometimes the problem is that the model did not receive
-        the right information at the right time.
-    </p>
-
-
-    <h3>Five context engineering strategies</h3>
-
-    <ol>
-        <li><strong>Generate</strong></li>
-        <li><strong>Retrieve</strong></li>
-        <li><strong>Write</strong></li>
-        <li><strong>Reduce</strong></li>
-        <li><strong>Isolate</strong></li>
-    </ol>
-
-
-    <!-- HARNESS -->
-
-    <h2>10. Harness</h2>
-
-    <p>
-        Another concept I came across is the idea of an
-        <strong>agent harness</strong>.
-    </p>
-
-    <p>
-        The harness is the surrounding system that helps the
-        model operate.
-    </p>
-
-    <p>
-        It can include things such as:
-    </p>
-
-    <ul>
-        <li>Tools</li>
-        <li>Memory</li>
-        <li>Context management</li>
-        <li>Skills</li>
-        <li>Safe execution</li>
-        <li>Files and user environment</li>
-        <li>Evaluation and other supporting components</li>
-    </ul>
-
-
-    <div class="formula">
-        Agent = Model + Harness
-    </div>
-
-
-    <!-- TAKEAWAYS -->
-
-    <h2>11. My key takeaways</h2>
-
-    <ol>
-
         <li>
-            An LLM by itself is not necessarily an agent.
+           Landscape of AI Agents
         </li>
 
         <li>
-            Tools give the system the ability to interact with
-            the outside world.
+            Understanding LLM Agents
         </li>
 
         <li>
-            A loop allows the system to perform multiple steps
-            and decide whether to continue.
+            Workflows vs agents.
         </li>
 
         <li>
-            Workflows have developer-defined execution paths.
+            Agents Benchmark  ?
         </li>
 
         <li>
-            Agents allow the LLM to dynamically influence the
-            execution path.
-        </li>
-
-        <li>
-            Not every problem needs an agent.
-        </li>
-
-        <li>
-            Context is a critical part of building reliable agents.
-        </li>
-
-        <li>
-            Understanding the internals makes agents easier to
-            debug and improve.
+            Context engineering for building effective agents 
         </li>
 
     </ol>
 
-
-    <!-- MY LEARNING -->
-
-    <h2>12. What I want to learn next</h2>
+    <h2>1.1 Landscape of AI Agents</h2>
 
     <p>
-        My next step is to move from understanding the concepts
-        to actually building a small agent from scratch.
+        AI agents can be categorized into three main types based on their purpose and functionality: </p>
+
+        <ol>
+            <li>👤 Personal Agent</li>
+            <li>🤝 Customer Agent</li>  
+            <li>🛠️ Specialized Agent</li>
+        </ol>   
+
+        <table border="1" style="border-collapse: collapse; width: 100%; margin-top: 20px;">
+        <thead>
+            <tr>
+            <th>Feature</th>
+            <th>Personal Agent</th>
+            <th>Customer Agent</th>
+            <th>Specialized Agent</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+            <td><strong>Main purpose</strong></td>
+            <td>Helps <strong>one person</strong> with personal tasks</td>
+            <td>Helps <strong>customers/users</strong> interact with a business</td>
+            <td>Performs a <strong>specific expert task</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Who uses it?</strong></td>
+            <td>Individual</td>
+            <td>Many customers</td>
+            <td>Employees, systems, or other agents</td>
+            </tr>
+            <tr>
+            <td><strong>Primary goal</strong></td>
+            <td>Personal productivity</td>
+            <td>Customer service &amp; business interaction</td>
+            <td>Solve a narrow/complex problem</td>
+            </tr>
+            <tr>
+            <td><strong>Knowledge</strong></td>
+            <td>User preferences, history, calendar, etc.</td>
+            <td>Company products, policies, customer data</td>
+            <td>Deep knowledge of one domain/task</td>
+            </tr>
+            <tr>
+            <td><strong>Examples</strong></td>
+            <td>Personal AI assistant, travel planner</td>
+            <td>Banking support agent, airline support agent</td>
+            <td>Coding agent, SQL agent, research agent</td>
+            </tr>
+            <tr>
+            <td><strong>Typical tasks</strong></td>
+            <td>Plan my day, book travel, summarize emails</td>
+            <td>Check account balance, return a product, track order</td>
+            <td>Review Java code, analyze SQL, generate a report</td>
+            </tr>
+            <tr>
+            <td><strong>Personalization</strong></td>
+            <td><strong>Very high</strong></td>
+            <td>Medium/high</td>
+            <td>Usually task-focused</td>
+            </tr>
+            <tr>
+            <td><strong>Scope</strong></td>
+            <td>Broad</td>
+            <td>Broad within a company/customer context</td>
+            <td><strong>Narrow and deep</strong></td>
+            </tr>
+        </tbody>
+        </table>
+
+    <h2>1.2 Understanding  LLM Agents</h2>
+
+    <p>    
+        All Agents are powered by LLMs for their decision-making capabilities. 
+        Question: What makes a system that predicts the next word capable of completing 
+        multistep tasks autonomously? 
+        Before we answer that, let’s explore how LLMs can be used to power agents and 
+        examine the three essential components that transform an LLM into an agent.        
     </p>
 
-    <div class="simple-box">
+    <ol>
+        <li> 
+            <strong>What is an LLM ?</strong>
+            <p>An LLM is a language model trained on nearly all publicly available text from the
+            internet. Although modern LLMs have evolved into multimodal models that process
+            images, audio, and video.</p>         
+        </li>
 
-        <strong>
-            Learn → Understand → Build → Test → Share
-        </strong>
+        <li>
+            <strong>What is an LLM agent?</strong>
+            <p>🧩 The core definition (the one you’re looking for)</p>
+            <p>
+                An LLM agent is a system where the LLM autonomously
+                controls the flow of actions — deciding what to do next,
+                which tools to use, and when to stop — in order to achieve a goal.
+            </p>
+
+                            <h3>1. Traditional program vs. Agent</h3>
+
+            <div class="simple-box">
+                <table border="1" style="border-collapse: collapse; width: 100%; margin-top: 20px; text-align: left;">
+                    <thead>
+                        <tr>
+                            <th>Traditional program</th>
+                            <th>LLM Agent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Developer decides what happens next</td>
+                            <td><strong>LLM decides what happens next</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Flow is hardcoded</td>
+                            <td>Flow can change dynamically</td>
+                        </tr>
+                        <tr>
+                            <td><code>if → then → function → function</code></td>
+                            <td><code>LLM → Tool → Result → LLM → Tool...</code></td>
+                        </tr>
+                        <tr>
+                            <td>Developer knows the steps beforehand</td>
+                            <td>Steps may be unpredictable</td>
+                        </tr>
+                        <tr>
+                            <td>Usually follows predefined workflow</td>
+                            <td>Can decide when to continue/stop</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. Research-agent example</h3>
+            <p><strong>User asks:</strong></p>
+            <blockquote>
+                <strong>"Summarize the 2024 Nobel Physics winners' research."</strong>
+            </blockquote>
+
+            <p>The agent might do:</p>
+
+            <table border="1" style="border-collapse: collapse; width: 100%; margin-top: 20px; text-align: left;">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>What happens</th>
+                        <th>Who decides?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Search "2024 Nobel Physics"</td><td>🧠 <strong>LLM</strong></td></tr>
+                    <tr><td>2</td><td>Identify Hinton &amp; Hopfield</td><td>🧠 <strong>LLM</strong></td></tr>
+                    <tr><td>3</td><td>Search for Hinton's papers</td><td>🧠 <strong>LLM</strong></td></tr>
+                    <tr><td>4</td><td>Look at Wikipedia for background</td><td>🧠 <strong>LLM</strong></td></tr>
+                    <tr><td>5</td><td>Decide whether enough information exists</td><td>🧠 <strong>LLM</strong></td></tr>
+                    <tr><td>6</td><td>Write final report</td><td>🧠 <strong>LLM</strong></td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                The important point is <strong>the developer didn't necessarily say:</strong>
+            </p>
+
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">Search Nobel
+                → Search Hinton
+                → Search paper
+                → Search Wikipedia
+                → Write report
+            </pre>
+
+            <p>
+                Instead, the LLM sees the current context and says:
+            </p>
+            <blockquote>
+                "I need more information. I'll search for X."
+            </blockquote>
+            <p>
+                Then it sees the result and decides:
+            </p>
+            <blockquote>
+                "I need information about Y."
+            </blockquote>
+
+            <p><strong>That's autonomous control flow.</strong></p>
+
+            <h3>3. The famous equation</h3>
+            <p>The book's idea can be remembered as:</p>
+
+            <div class="loop">
+                <img src="resources/autonomous_control_flow.png" alt="LLM + tools + loop → autonomous control flow" 
+                style="max-width: 100%; margin-top: 20px;">
+            </div>
+
+            <h3>4. What is the LOOP?</h3>
+            <p>This is the most important part.</p>
+
+            <div class="loop">
+                <img src="resources/loop.png" alt="LLM + tools + loop → autonomous control flow" 
+                style="max-width: 100%; margin-top: 20px;">
+            </div>
+
+            <p>
+                So an agent isn't necessarily:
+            </p>
+            <blockquote>
+                <strong>LLM + tool</strong>
+            </blockquote>
+            <p>
+                It's more accurately:
+            </p>
+            <blockquote>
+                <strong>LLM + tools + loop → autonomous control flow</strong>
+            </blockquote>
+
+            <h3>5. Where does "tool" fit?</h3>
+            <p>For the research agent:</p>
+
+            <table border="1" style="border-collapse: collapse; width: 100%; margin-top: 20px; text-align: left;">
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>🌐 Search</td><td>Find current information</td></tr>
+                    <tr><td>📄 Paper search</td><td>Find academic papers</td></tr>
+                    <tr><td>📚 Wikipedia</td><td>Get background information</td></tr>
+                    <tr><td>💻 Code execution</td><td>Analyze data if needed</td></tr>
+                    <tr><td>🗄️ Database</td><td>Retrieve structured information</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                The <strong>LLM doesn't become the tool</strong>.
+            </p>
+            <p>
+                The LLM decides:                   
+                    <blockquote>
+                        "I should use the search tool."
+                    </blockquote>
+            </p>
+
+            <p>
+                The tool actually performs the search.
+            </p>
+            <p>
+                Then the result comes back to the LLM.
+            </p>
+
+            <h3>6. The key concept to remember</h3>
+            <p>If you're studying this chapter, I'd memorize this one sentence:</p>
+            <blockquote>
+                <strong>An LLM agent is a program that gives an LLM some control over what happens next.</strong>
+            </blockquote>
+
+            <p>And the three building blocks are:</p>
+            <p>
+                <strong>🧠 LLM = decides</strong><br>
+                <strong>🔧 Tool = acts</strong><br>
+                <strong>🔄 Loop = keeps the process going</strong>
+            </p>
+
+            <p>
+                That is the foundation for understanding <strong>workflow vs. agent, agent patterns, harnesses, and multi-agent systems</strong>
+                later in the book.
+            </p>
+        </li>
+
+    </ol>
+
+    <h2>1.3 Workflow vs. Agent</h2>
+
+    <h3>1.3.1 Workflow and agent definitions</h3>
+    <p>
+        A <strong>workflow</strong> is a developer-controlled execution flow. The developer decides what happens next,
+        which tools to use, and when to stop.
+    </p>
+    <p>
+        An <strong>agent</strong> is an LLM-controlled execution flow. The LLM decides what happens next,
+        which tools to use, and when to stop.
+    </p>
+
+    <h3>1.3.2 The three axes of control</h3>
+    <p>The diagram breaks agency into three dimensions:</p>
+    <ol>
+        <li><strong>Current step output:</strong> Who produces the output right now?</li>
+        <li><strong>Next step decision:</strong> Who decides what happens next?</li>
+        <li><strong>Available steps:</strong> Who defines the menu of possible actions?</li>
+    </ol>
+
+    <figure style="margin: 20px 0; text-align: center;">
+        <img src="resources/workflow_vs_agent.png" alt="Workflow versus agent control spectrum" style="max-width: 100%;">
+        <figcaption>As agency increases, the LLM controls more of the output, next steps, and available actions.</figcaption>
+    </figure>
+
+    <h3>1.3.3 Seven levels of agency</h3>
+    <p>
+        The levels below move from a fully developer-controlled workflow toward a fully autonomous agent.
+    </p>
+
+    <div style="overflow-x: auto; margin-top: 20px;">
+        <table border="1" style="border-collapse: collapse; width: 100%; min-width: 760px; text-align: left;">
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Workflow or Agent?</th>
+                    <th>Definition</th>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td><strong>LLM Call</strong></td>
+                    <td>Workflow</td>
+                    <td>A single prompt produces a single response. The developer controls everything.</td>
+                    <td>Simple, predictable, cheap, and easy to debug.</td>
+                    <td>No multi-step reasoning; cannot adapt; limited capability.</td>
+                </tr>
+                <tr>
+                    <td><strong>2</strong></td>
+                    <td><strong>Chain</strong></td>
+                    <td>Workflow</td>
+                    <td>Multiple LLM calls arranged in a fixed sequence designed by the developer.</td>
+                    <td>Reliable multi-step processing; focused prompts; deterministic.</td>
+                    <td>Rigid flow; every step must be designed; cannot handle unexpected paths.</td>
+                </tr>
+                <tr>
+                    <td><strong>3</strong></td>
+                    <td><strong>Router</strong></td>
+                    <td>Workflow</td>
+                    <td>The LLM chooses among predefined branches based on classification or intent.</td>
+                    <td>Dynamic routing; useful for triage and support; still predictable.</td>
+                    <td>Cannot invent new paths; limited flexibility; options are developer-defined.</td>
+                </tr>
+                <tr>
+                    <td><strong>4</strong></td>
+                    <td><strong>Tool Call</strong></td>
+                    <td>Agent (minimal)</td>
+                    <td>The LLM can call one external tool, such as search, code, or a database, without a loop.</td>
+                    <td>Enables real-world actions; more powerful than pure text; good for simple tasks.</td>
+                    <td>Only one tool call; no iterative reasoning; unsuitable for complex tasks.</td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong></td>
+                    <td><strong>Multistep Agent Loop</strong></td>
+                    <td>Agent</td>
+                    <td>The LLM repeatedly decides, acts, observes, and repeats until the task is complete.</td>
+                    <td>True autonomy; handles unpredictable complexity; ideal for research and planning.</td>
+                    <td>More expensive; harder to predict; needs guardrails.</td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td><strong>Tool Creation</strong></td>
+                    <td>Agent</td>
+                    <td>The LLM creates new tools, usually code, when existing tools are insufficient.</td>
+                    <td>Self-extending abilities; extremely flexible; adapts to new requirements.</td>
+                    <td>High complexity; harder to secure; risk of faulty tool creation.</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td><strong>Full Autonomous Agent</strong></td>
+                    <td>Agent</td>
+                    <td>The LLM controls the entire process: actions, tools, tool creation, and stopping criteria.</td>
+                    <td>Maximum adaptability; end-to-end orchestration; most powerful.</td>
+                    <td>Hardest to control; expensive; requires strong safety constraints.</td>
+                </tr>
+            </tbody>
+        </table>
+
 
     </div>
 
-    <p>
-        I am using this page as a personal learning and revision
-        notebook while exploring AI agents.
-    </p>
 
-
-    <!-- SOURCE -->
-
-    <h2>13. Source</h2>
+    <h3>1.3.4 Combining workflows and agents in practice</h3>
 
     <p>
-        <strong>
-            Build an AI Agent (From Scratch)
-        </strong>
+        The distinction between workflows and agents is not always binary in production systems.
+        Effective architectures often combine both approaches: workflows provide structure and
+        predictability, while agents add flexibility where it is needed.
     </p>
 
+    <h4>Agents as nodes in a workflow</h4>
     <p>
-        Manning Publications — Chapter 1:
-        <em>What is an AI agent?</em>
+        A common pattern is to design an overall workflow with well-defined stages and implement
+        one or more of those stages as an agent. Consider this document-processing pipeline:
     </p>
 
+    <ol>
+        <li><strong>Document intake (workflow):</strong> Validate the format and extract metadata.</li>
+        <li><strong>Content analysis (agent):</strong> Research context, gather related information, and synthesize findings.</li>
+        <li><strong>Quality review (workflow):</strong> Check compliance rules and format the output.</li>
+        <li><strong>Delivery (workflow):</strong> Route the result to the appropriate destination.</li>
+    </ol>
+
     <p>
-        <a href="https://livebook.manning.com/book/build-an-ai-agent-from-scratch/chapter-1"
-           target="_blank">
-            Read the original chapter on Manning
-        </a>
+        The agent operates freely within its designated stage, making multiple tool calls, following
+        chains of inquiry, and adapting to what it discovers. The overall process still maintains the
+        predictability of a workflow. If the agent fails or produces unexpected results, the workflow
+        can catch them during the quality-review stage.
     </p>
+
+    <h4>Why combine workflows and agents?</h4>
+    <ul>
+        <li><strong>Contain complexity:</strong> Limiting where agents operate makes the system easier to reason about and debug.</li>
+        <li><strong>Improve predictability:</strong> Fixed workflow stages provide clear boundaries around flexible agent behavior.</li>
+        <li><strong>Enable targeted autonomy:</strong> Agents can handle open-ended work without controlling the entire process.</li>
+    </ul>
+        
+
+    <h2>1.3 Workflow vs. Agent</h2>
+
 
 
     <footer>
@@ -618,6 +563,19 @@
 
         <p>
             Notes created for learning, experimentation and revision.
+        </p>
+
+
+        <p>
+            Manning Publications — Chapter 1:
+            <em>What is an AI agent?</em>
+        </p>
+
+        <p>
+            <a href="https://livebook.manning.com/book/build-an-ai-agent-from-scratch/chapter-1"
+            target="_blank">
+                Read the original chapter on Manning
+            </a>
         </p>
 
     </footer>
