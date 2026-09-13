@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="My AI learning journey: notes on building AI agents." />
-	<title>My AI Learning Journey</title>
+	<meta name="description" content="A personal library of revision notes from different books and learning projects." />
+	<title>Revision Notes Library | My AI Learning Journey</title>
 	<style>
 		:root{--ink:#17211b;--muted:#66716a;--paper:#fbfaf5;--green:#315c4c;--green-dark:#1e4035;--orange:#d8784b;--line:#d9ded4}
 		*{box-sizing:border-box}
@@ -19,19 +19,27 @@
 		.entry{padding:28px;background:var(--green);color:#f8f4e9;border-radius:4px;box-shadow:0 24px 70px rgba(33,50,39,.12)}
 		.entry-label{margin-bottom:22px;color:#c9d9c9;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.entry h2{margin:0 0 12px;font-family:Georgia,serif;font-size:1.8rem;font-weight:400}.entry p{margin-bottom:22px;color:#d9e5d8;font-size:.9rem}
 		.entry a{display:inline-flex;align-items:center;gap:12px;padding:11px 14px;background:#f8f4e9;color:var(--green-dark);font-size:.88rem;font-weight:700;text-decoration:none;border-radius:2px}.entry a:hover,.entry a:focus-visible{background:#fff}
-		.note{padding-top:42px;color:var(--muted);font-size:.9rem}.note strong{color:var(--ink)}
+		.note{margin:0;padding:18px 20px;color:var(--muted);font-size:.9rem;background:rgba(255,255,255,.45);border:1px solid var(--line);border-left:4px solid var(--orange)}.note strong{color:var(--ink)}
+		.library{padding-top:42px}.library-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:18px}.library-heading h2{margin:0;font-family:Georgia,serif;font-size:1.7rem;font-weight:400}.library-heading p{margin:0;color:var(--muted);font-size:.9rem}.book-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.book{min-height:180px;padding:22px;background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:4px}.book.active{background:var(--green);color:#f8f4e9;border-color:var(--green)}.book-label{margin-bottom:24px;color:var(--orange);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.book.active .book-label{color:#f5b28f}.book h3{margin:0 0 8px;font-family:Georgia,serif;font-size:1.45rem;font-weight:400}.book p{margin:0;color:var(--muted);font-size:.87rem}.book.active p{color:#d9e5d8}.book a{display:inline-block;margin-top:18px;color:#f8f4e9;font-size:.85rem;font-weight:700;text-decoration:none}.book a:hover{text-decoration:underline}.book.placeholder{border-style:dashed}.book.placeholder h3{color:var(--green-dark)}
 		footer{margin-top:80px;padding-top:22px;border-top:1px solid rgba(49,92,76,.2);color:var(--muted);font-size:.82rem}
-		@media(max-width:700px){.page{width:min(100% - 28px,560px);padding-top:26px}.topbar{margin-bottom:54px}.topbar span{display:none}.hero{grid-template-columns:1fr;gap:32px;padding-bottom:36px}h1{font-size:clamp(3.4rem,16vw,5.5rem)}}
+		@media(max-width:700px){.page{width:min(100% - 28px,560px);padding-top:26px}.topbar{margin-bottom:54px}.topbar span{display:none}.hero{grid-template-columns:1fr;gap:32px;padding-bottom:36px}h1{font-size:clamp(3.4rem,16vw,5.5rem)}.library-heading{display:block}.library-heading p{margin-top:5px}.book-grid{grid-template-columns:1fr}}
 	</style>
 </head>
 <body>
 	<main class="page">
-		<header class="topbar"><div class="mark">My AI learning journey</div><span>Field notes / home</span></header>
+		<header class="topbar"><div class="mark">My AI learning journey</div><span>Revision notes / home</span></header>
 		<section class="hero" aria-labelledby="page-title">
-			<div><div class="eyebrow">A practical study guide</div><h1 id="page-title">Think. Plan.<br><em>Build.</em></h1><p>Notes and experiments on the systems that help AI agents reason, use tools, and act with purpose.</p></div>
-			<article class="entry" aria-labelledby="entry-title"><div class="entry-label">Featured notebook</div><h2 id="entry-title">Build an AI agent from scratch</h2><p>Begin with the foundations of agents, workflows, tools, and autonomous control.</p><a href="BUIILD_AN_AI_AGENT/build_an_ai_agent_index.html">Open the learning index <span aria-hidden="true">↗</span></a></article>
+			<div><div class="eyebrow">A personal revision library</div><h1 id="page-title">Read.<br>Remember.<br><em>Revisit.</em></h1><p>Short notes, diagrams, and experiments gathered while studying books and ideas across AI and software.</p></div>
+			<article class="entry" aria-labelledby="entry-title"><div class="entry-label">What lives here</div><h2 id="entry-title">Revision notes, not complete books</h2><p>This repository is a personal learning companion: summaries and reminders for review, not a replacement for the original works.</p></article>
 		</section>
-		<p class="note"><strong>Current focus:</strong> understanding how an LLM moves from generating text to controlling the next action.</p>
+		<section class="library" aria-labelledby="library-title">
+			<div class="library-heading"><h2 id="library-title">The revision shelf</h2><p>Choose a notebook to continue.</p></div>
+			<div class="book-grid">
+				<article class="book active"><div class="book-label">Book 01 / In progress</div><h3>Build an AI Agent<br>from Scratch</h3><p>Agents, workflows, tools, and autonomous control.</p><a href="BUIILD_AN_AI_AGENT/build_an_ai_agent_index.html">Open revision notes <span aria-hidden="true">↗</span></a></article>
+				<article class="book placeholder"><div class="book-label">Book 02 / Coming soon</div><h3>Another book,<br>another set of notes</h3><p>A new revision shelf will appear here as the reading grows.</p></article>
+			</div>
+		</section>
+		<p class="note"><strong>Reader's note:</strong> These pages are condensed learning notes for personal revision. Please use the original books and sources for the complete material.</p>
 		<footer>Learning in public, one carefully tested idea at a time.</footer>
 	</main>
 </body>
