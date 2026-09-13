@@ -7,103 +7,20 @@
     <title>What is an AI Agent? | My AI Learning Journey</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            color: #222;
-            background: #f7f7f7;
-        }
-
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-        }
-
-        h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            margin-top: 40px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-        }
-
-        h3 {
-            margin-top: 30px;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-        }
-
-        .note {
-            background: #f1f7ff;
-            border-left: 5px solid #4285f4;
-            padding: 15px 20px;
-            margin: 25px 0;
-        }
-
-        .simple-box {
-            background: #f8f8f8;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .formula {
-            font-size: 24px;
-            font-weight: bold;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .workflow {
-            background: #fff7e6;
-            border-left: 5px solid #f0ad4e;
-            padding: 15px 20px;
-            margin: 20px 0;
-        }
-
-        .agent {
-            background: #eef9f0;
-            border-left: 5px solid #28a745;
-            padding: 15px 20px;
-            margin: 20px 0;
-        }
-
-        .loop {
-            text-align: center;
-            font-size: 18px;
-            line-height: 2;
-            margin: 20px 0;
-        }
-
-        code {
-            background: #eee;
-            padding: 3px 6px;
-            border-radius: 4px;
-        }
-
-        footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #777;
-            font-size: 14px;
-        }
-
-        a {
-            color: #1565c0;
-        }
+        :root{--ink:#17211b;--muted:#66716a;--paper:#fbfaf5;--green:#315c4c;--green-dark:#1e4035;--orange:#d8784b;--line:#d9ded4}
+        *{box-sizing:border-box}
+        body{margin:0;min-width:320px;color:var(--ink);background:radial-gradient(circle at 8% 12%,rgba(216,120,75,.12),transparent 25rem),linear-gradient(135deg,#e8eee5 0%,var(--paper) 48%,#f4e8d8 100%);font-family:"Trebuchet MS","Segoe UI",sans-serif;line-height:1.7}
+        .container{width:min(980px,calc(100% - 40px));margin:0 auto;padding:44px 0 56px}
+        .topbar{display:flex;justify-content:space-between;margin-bottom:54px;color:var(--green-dark);font-size:.78rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.mark{display:flex;align-items:center;gap:10px}.mark:before{width:11px;height:11px;content:"";display:block;background:var(--orange);border-radius:50%;box-shadow:7px 0 0 var(--green)}
+        .back-link{color:var(--green-dark);text-decoration:none}.back-link:hover{text-decoration:underline}
+        .chapter-header{padding-bottom:36px;border-bottom:1px solid rgba(49,92,76,.2)}.eyebrow{color:var(--orange);font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.chapter-header h1{max-width:780px;margin:16px 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,7vw,6rem);font-weight:400;letter-spacing:-.045em;line-height:.95}.chapter-header p{max-width:650px;margin:0;color:var(--muted);font-size:1.08rem}
+        h2{margin:52px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line);font-family:Georgia,serif;font-size:2rem;font-weight:400;line-height:1.2}h3{margin:34px 0 12px;color:var(--green-dark);font-size:1.22rem}h4{margin:26px 0 8px;color:var(--green-dark);font-size:1rem}p{max-width:780px}a{color:var(--green-dark)}
+        .simple-box,.note,.workflow,.agent{margin:22px 0;padding:20px 22px;background:rgba(255,255,255,.55);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:3px}.simple-box{text-align:center}.workflow{background:#f7edda}.agent{background:#e8f0e7;border-left-color:var(--green)}
+        .loop{margin:24px 0;padding:20px;text-align:center;font-size:18px;line-height:2;background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:3px}.loop img{max-width:100%;height:auto}
+        figure{margin:24px 0!important;padding:16px;background:rgba(255,255,255,.45);border:1px solid var(--line);border-radius:3px}figure img{max-width:100%;height:auto}figcaption{margin-top:10px;color:var(--muted);font-size:.82rem;font-style:italic}
+        table{border-color:var(--line)!important;background:rgba(255,255,255,.55);font-size:.9rem}th{padding:11px 12px;background:var(--green);color:#f8f4e9;text-align:left}td{padding:10px 12px;border-color:var(--line)}tbody tr:nth-child(even){background:rgba(232,238,229,.55)}code{padding:3px 6px;background:#e7e8df;border-radius:3px}blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--orange);background:rgba(255,255,255,.45);color:var(--green-dark)}pre{color:var(--ink)!important;background:#e7e8df!important}
+        footer{margin-top:64px;padding-top:22px;border-top:1px solid rgba(49,92,76,.2);color:var(--muted);font-size:.82rem}footer p{margin:8px 0}
+        @media(max-width:700px){.container{width:min(100% - 28px,560px);padding-top:26px}.topbar{margin-bottom:38px}.topbar span{display:none}.chapter-header h1{font-size:clamp(3rem,15vw,5rem)}table{font-size:.82rem}}
     </style>
 </head>
 
@@ -111,7 +28,16 @@
 
 <div class="container">
 
-    <h1>What is an AI Agent?</h1>
+    <header class="topbar">
+        <div class="mark">My AI learning journey</div>
+        <a class="back-link" href="build_an_ai_agent_index.html">Back to index <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <header class="chapter-header">
+        <div class="eyebrow">Chapter 01 / Foundations</div>
+        <h1>What is an AI agent?</h1>
+        <p>Understand the difference between a fixed workflow and a system that can reason, use tools, and decide what happens next.</p>
+    </header>
 
     <ol>
         <li>
@@ -550,10 +476,6 @@
         <li><strong>Enable targeted autonomy:</strong> Agents can handle open-ended work without controlling the entire process.</li>
     </ul>
         
-
-    <h2>1.3 Workflow vs. Agent</h2>
-
-
 
     <footer>
 
